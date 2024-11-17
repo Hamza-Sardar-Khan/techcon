@@ -45,11 +45,10 @@ const Movies: React.FC = () => {
     // Genre click handler
     const handleGenreClick = (genre: string) => {
         setSelectedGenre((prev) => {
-            // Toggle genre on click (if already selected, remove it)
             if (prev.includes(genre)) {
-                return prev.filter(item => item !== genre);
+                return prev.filter(item => item !== genre); // Remove if already selected
             }
-            return [...prev, genre];
+            return [...prev, genre]; // Add to selected genres
         });
     };
 
@@ -147,7 +146,7 @@ const Movies: React.FC = () => {
                 </div>
 
                 {/* Movie List */}
-                <MovieList movieTitles={filteredMovies} selectedGenre={selectedGenre} />
+                <MovieList movieTitles={filteredMovies} selectedGenre={selectedGenre}     searchQuery={searchQuery} />
             </div>
         </div>
     );

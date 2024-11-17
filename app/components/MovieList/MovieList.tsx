@@ -31,9 +31,7 @@ const MovieList: FC<MovieListProps> = ({ movieTitles, selectedGenre }) => {
                 );
 
                 setMovies(filteredMovies);
-            } catch (err) {
-                setError('Failed to fetch movies');
-            } finally {
+            }  finally {
                 setLoading(false);
             }
         };

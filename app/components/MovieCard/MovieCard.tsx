@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import ReactStars from 'react-stars'; // Import the react-stars component
 import OMDbMovie from './../../types/OMDbMovie';
-import { FaCirclePlay } from "react-icons/fa6";
 import { FaCartArrowDown } from "react-icons/fa6";
 interface MovieCardProps {
   movie: OMDbMovie;

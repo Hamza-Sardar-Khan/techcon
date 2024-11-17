@@ -14,9 +14,8 @@ const MovieList: FC<MovieListProps> = ({ movieTitles, selectedGenre, searchQuery
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
-        // Reset movies state before fetching new data
         setMovies([]);
-        setLoading(true);  // Show loading state
+        setLoading(true); 
 
         const fetchMovies = async () => {
             try {
@@ -29,7 +28,6 @@ const MovieList: FC<MovieListProps> = ({ movieTitles, selectedGenre, searchQuery
                     .map((response) => response.data)
                     .filter((movie) => movie.Response === 'True');  // Filter successful responses
 
-                // Apply genre filter if there are selected genres
                 let filteredMovies = fetchedMovies;
 
                 if (selectedGenre.length > 0) {
@@ -38,7 +36,6 @@ const MovieList: FC<MovieListProps> = ({ movieTitles, selectedGenre, searchQuery
                     );
                 }
 
-                // Apply search filter logic (starts with or exact match)
                 if (searchQuery) {
                     filteredMovies = filteredMovies.filter((movie) => {
                         const movieTitle = movie.Title.toLowerCase();
@@ -48,7 +45,6 @@ const MovieList: FC<MovieListProps> = ({ movieTitles, selectedGenre, searchQuery
                     });
                 }
 
-                // Update the movies state with the filtered list
                 setMovies(filteredMovies);
             } catch (err) {
                 console.error('Error fetching movies:', err);
@@ -57,20 +53,19 @@ const MovieList: FC<MovieListProps> = ({ movieTitles, selectedGenre, searchQuery
             }
         };
 
-        // Call fetchMovies only if there are movie titles to search through
         if (movieTitles.length > 0) {
             fetchMovies();
+        } else {
+            setLoading(false); // If no movie titles, stop loading immediately
         }
     }, [movieTitles, selectedGenre, searchQuery]);  // Re-run when these change
 
-    // If loading, show the loading spinner
     if (loading) return (
         <div className="flex justify-center items-center min-h-screen">
             <div className="animate-spin rounded-full border-t-4 border-blue-500 border-solid w-16 h-16"></div>
         </div>
     );
 
-    // If no movies match the search and filters, show a "No results found" message
     if (movies.length === 0) {
         return (
             <div className="flex justify-center items-center min-h-screen text-gray-500">
@@ -96,3 +91,4 @@ const MovieList: FC<MovieListProps> = ({ movieTitles, selectedGenre, searchQuery
 };
 
 export default MovieList;
+    

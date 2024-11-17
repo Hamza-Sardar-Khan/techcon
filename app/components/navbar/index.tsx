@@ -190,7 +190,7 @@ const NavBar = () => {
                               Security
                             </p>
                             <p className="mt-1 text-sm text-gray-500">
-                              Your customers' data will be safe and secure.
+                              Your customers data will be safe and secure.
                             </p>
                           </div>
                         </a>
@@ -219,7 +219,7 @@ const NavBar = () => {
                               Integrations
                             </p>
                             <p className="mt-1 text-sm text-gray-500">
-                              Connect with third-party tools that you're already
+                              Connect with third-party tools that youre already
                               using.
                             </p>
                           </div>

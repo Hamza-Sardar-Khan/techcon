@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Movies from "./components/movies";
 const Home = () => {
-  let settings = {
+  const settings = {
     infinite: true,        
     speed: 500,            
     slidesToShow: 1,       

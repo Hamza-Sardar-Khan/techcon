@@ -11,7 +11,7 @@ interface MovieListProps {
 const MovieList: FC<MovieListProps> = ({ movieTitles, selectedGenre }) => {
     const [movies, setMovies] = useState<OMDbMovie[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
+    const [error] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchMovies = async () => {
